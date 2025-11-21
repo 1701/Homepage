@@ -60,8 +60,14 @@ const App: React.FC = () => {
         </div>
 
         {/* Monitor Brand Label */}
-        <div className="absolute bottom-[-18px] left-1/2 transform -translate-x-1/2 text-[#444] font-retro-header text-[10px] md:text-xs tracking-[0.3em] z-20 pointer-events-none hidden md:block">
-            COMMODORE 1084S
+        <div className="absolute bottom-[-18px] left-1/2 transform -translate-x-1/2 text-[#444] font-retro-header text-[10px] md:text-xs tracking-[0.3em] z-20 pointer-events-none hidden md:flex items-center gap-2 opacity-80">
+            {/* Commodore Logo SVG */}
+            <svg width="14" height="14" viewBox="0 0 100 100" className="fill-[#444]">
+               <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" strokeWidth="12" />
+               <path d="M 50 18 A 32 32 0 1 0 50 82 L 50 65 A 15 15 0 1 1 50 35 Z" fill="currentColor" stroke="none" />
+               <rect x="45" y="42" width="50" height="16" fill="currentColor" />
+            </svg>
+            <span>COMMODORE 1084S</span>
         </div>
         
         {/* Power LED */}
