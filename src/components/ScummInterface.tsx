@@ -28,7 +28,7 @@ const ScummInterface: React.FC<ScummInterfaceProps> = ({ onShowImprint }) => {
       {/* Top Bar - Transparent / Minimal */}
       <div className="bg-black/40 text-cyan-300 px-2 py-1 flex justify-between items-center font-retro-body text-lg border-b-2 border-cyan-900/50">
         <span className="text-shadow-sm">SYSTEM: ONLINE</span>
-        <span className="animate-pulse text-pink-500">1987 Mode</span>
+        <span className="animate-pulse text-pink-500">1980 Mode</span>
       </div>
 
       {/* Main Visual Area (The "Scene") */}
@@ -68,31 +68,24 @@ const ScummInterface: React.FC<ScummInterfaceProps> = ({ onShowImprint }) => {
                     <rect x="19" y="18" width="1" height="1" fill="#dcb08a" />
                     <rect x="14" y="19" width="5" height="1" fill="#ce8e66" />
 
-                    {/* Sweater Body (Dark Blue) */}
-                    <rect x="8" y="22" width="16" height="10" fill="#1e3a8a" />
+                    {/* Shirt Body (Dark Grey) */}
+                    <rect x="8" y="22" width="16" height="10" fill="#374151" />
                     {/* Shoulders */}
-                    <rect x="6" y="23" width="2" height="9" fill="#1e3a8a" />
-                    <rect x="24" y="23" width="2" height="9" fill="#1e3a8a" />
+                    <rect x="6" y="23" width="2" height="9" fill="#374151" />
+                    <rect x="24" y="23" width="2" height="9" fill="#374151" />
                     
-                    {/* Sweater Patterns (Retro Style) */}
-                    {/* Red Accents */}
-                    <rect x="11" y="25" width="2" height="2" fill="#ef4444" />
-                    <rect x="19" y="25" width="2" height="2" fill="#ef4444" />
-                    <rect x="15" y="28" width="2" height="2" fill="#ef4444" />
+                    {/* Design: Cyan Stripe */}
+                    <rect x="10" y="25" width="12" height="2" fill="#06b6d4" />
                     
-                    {/* White Stripes/Details */}
-                    <rect x="10" y="23" width="12" height="1" fill="#ffffff" opacity="0.8" />
-                    <rect x="14" y="26" width="4" height="1" fill="#ffffff" opacity="0.8" />
-                    
-                    {/* Collar */}
-                    <rect x="12" y="22" width="8" height="1" fill="#111827" opacity="0.3" />
+                    {/* Collar area */}
+                    <rect x="12" y="22" width="8" height="1" fill="#1f2937" />
                 </svg>
-                <span className="font-retro-header text-yellow-400 text-xs md:text-sm text-center mt-2 bg-black/80 px-2 border border-yellow-400/30">MARKUS.EXE</span>
+                <span className="font-retro-header text-yellow-400 text-xs md:text-sm text-center mt-2 bg-black/80 px-2 border border-yellow-400/30">MARKUS_S.EXE</span>
             </div>
             
             {/* Hover Speech Bubble */}
             <div className="absolute -top-16 left-1/2 transform -translate-x-1/2 bg-white text-black p-2 rounded border-2 border-black font-retro-body w-40 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-20 shadow-[4px_4px_0_rgba(255,0,255,1)]">
-                Insert Coin
+                Yes, that's me.
                 <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-8 border-r-8 border-t-8 border-l-transparent border-r-transparent border-t-white"></div>
             </div>
         </div>
@@ -102,7 +95,7 @@ const ScummInterface: React.FC<ScummInterfaceProps> = ({ onShowImprint }) => {
           <p className="mb-4 text-cyan-300 drop-shadow-[2px_2px_0_rgba(0,0,0,0.8)]">WELCOME TO THE GRID.</p>
           <p className="drop-shadow-md">I AM <span className="text-pink-500 font-bold text-shadow-glow">MARKUS STEIREIF</span>.</p>
           <p className="drop-shadow-md text-gray-300">PRODUCT GUY, BORN IN THE 80s & RETRO ENTHUSIAST.</p>
-          <p className="mt-4 text-yellow-300 text-sm md:text-lg blink-caret"> CHOOSE YOUR DESTINY_</p>
+          <p className="mt-4 text-yellow-300 text-sm md:text-lg blink-caret"> "Things are only impossible until they're not." — Captain Jean-Luc Picard_</p>
         </div>
 
       </div>
@@ -111,7 +104,7 @@ const ScummInterface: React.FC<ScummInterfaceProps> = ({ onShowImprint }) => {
       <div className="bg-[#121212]/95 border-t-4 border-gray-600 p-4 h-auto md:h-48 flex flex-col shadow-[0_-4px_10px_rgba(0,0,0,0.5)] relative z-20">
         {/* Sentence Line */}
         <div className="h-8 mb-2 text-center font-retro-body text-green-400 text-xl tracking-widest uppercase drop-shadow-[0_0_5px_rgba(0,255,0,0.5)]">
-             {hoveredVerb ? `> ${hoveredVerb}` : '> READY'} <span className="animate-pulse">_</span>
+             {hoveredVerb ? `> ${hoveredVerb}` : '> Where do you want to go today? :'} <span className="animate-pulse">_</span>
         </div>
 
         {/* Verbs Grid */}
@@ -128,9 +121,9 @@ const ScummInterface: React.FC<ScummInterfaceProps> = ({ onShowImprint }) => {
                 </button>
             ))}
             {/* Filler verbs for aesthetics */}
-            <button className="text-gray-700 cursor-not-allowed text-left px-4 py-2" disabled>MAILBOX</button>
-            <button className="text-gray-700 cursor-not-allowed text-left px-4 py-2" disabled>IRC</button>
-            <button className="text-gray-700 cursor-not-allowed text-left px-4 py-2" disabled>USENET</button>
+            <button className="text-gray-700 cursor-not-allowed text-left px-4 py-2" disabled>MAILBOX / BBS</button>
+            <button className="text-gray-700 cursor-not-allowed text-left px-4 py-2" disabled>IRC CHAT</button>
+            <button className="text-gray-700 cursor-not-allowed text-left px-4 py-2" disabled>USENET GROUPS</button>
         </div>
       </div>
     </div>

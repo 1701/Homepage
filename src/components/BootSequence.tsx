@@ -37,7 +37,8 @@ const BootSequence: React.FC<BootSequenceProps> = ({ onComplete }) => {
   }, [currentIndex, onComplete]);
 
   return (
-    <div className="p-8 font-retro-body text-xl md:text-2xl h-full flex flex-col justify-start items-start bg-black text-gray-300 overflow-y-auto">
+    // Changed bg-black to bg-transparent to inherit transparency from parent
+    <div className="p-8 font-retro-body text-xl md:text-2xl h-full flex flex-col justify-start items-start bg-transparent text-gray-300 overflow-y-auto">
       {lines.map((line, idx) => (
         <div key={idx} className={`mb-1 ${line.color || 'text-gray-300'}`}>
           {line.text}

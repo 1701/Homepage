@@ -10,7 +10,7 @@ const ImprintModal: React.FC<ImprintModalProps> = ({ onClose }) => {
       <div className="bg-blue-800 border-4 border-gray-300 shadow-[10px_10px_0_rgba(0,0,0,1)] w-full max-w-2xl max-h-[90vh] flex flex-col">
         {/* Window Header */}
         <div className="bg-gray-300 text-black px-2 py-1 flex justify-between items-center font-retro-header text-xs md:text-sm">
-          <span>IMPRINT.TXT - NOTEPAD</span>
+          <span>IMPRINT.TXT - EDIT.EXE</span>
           <button onClick={onClose} className="bg-red-600 text-white px-2 border border-black hover:bg-red-500">X</button>
         </div>
 
