@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Animations */
+@keyframes flicker {
+  0% { opacity: 0.97; }
+  5% { opacity: 0.95; }
+  10% { opacity: 0.9; }
+  15% { opacity: 0.95; }
+  20% { opacity: 0.99; }
+  25% { opacity: 0.95; }
+  30% { opacity: 0.9; }
+  35% { opacity: 0.96; }
+  40% { opacity: 0.98; }
+  45% { opacity: 0.95; }
+  50% { opacity: 0.99; }
+  55% { opacity: 0.93; }
+  60% { opacity: 0.9; }
+  65% { opacity: 0.96; }
+  70% { opacity: 1; }
+  75% { opacity: 0.97; }
+  80% { opacity: 0.95; }
+  85% { opacity: 0.92; }
+  90% { opacity: 0.98; }
+  95% { opacity: 0.99; }
+  100% { opacity: 0.94; }
+}
+
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(600%); }
+}
+
+@keyframes gridMove {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 60px; }
+}
+
+.crt-flicker {
+  animation: flicker 0.15s infinite;
+}
+
+.text-shadow-glow {
+  text-shadow: 0 0 5px #ff00de, 0 0 10px #ff00de;
+}
+
+.blink-caret {
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+  background: #000;
+}
+::-webkit-scrollbar-thumb {
+  background: #00aa00;
+  border: 2px solid #000;
+}
+
