@@ -6,12 +6,12 @@ interface BootSequenceProps {
 }
 
 const SEQUENCE: BootLine[] = [
-  { text: "MS CORE 64 SYSTEM BIOS v1.04 (c) 1987", delay: 800, color: "text-green-400" },
+  { text: "MS CORE 64 SYSTEM BIOS v11.03 (c) 1980", delay: 800, color: "text-green-400" },
   { text: "CHECKING PERIPHERALS...", delay: 400 },
   { text: "  > CPU: MOS TECHNOLOGY 6510 [OK]", delay: 300 },
   { text: "  > RAM: 64K [OK]", delay: 300 },
   { text: "  > VIDEO: SYNTHWAVE GPU ACCELERATOR DETECTED", delay: 500 },
-  { text: "LOADING McKRACKEN_VIBES...", delay: 1200 },
+  { text: "LOADING THREEPWOOD_VIBES...", delay: 1200 },
   { text: "MOUNTING DRIVE C: ...", delay: 600 },
   { text: "EXEC: AUTOEXEC.BAT", delay: 400 },
   { text: "INITIALIZING USER INTERFACE...", delay: 1000 },

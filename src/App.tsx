@@ -34,7 +34,7 @@ const App: React.FC = () => {
       <SynthwaveBackground />
 
       {/* 2. The Monitor Container */}
-      <div className="relative z-10 w-full h-full md:w-[90%] md:h-[90%] max-w-6xl bg-[#111]/70 backdrop-blur-sm md:rounded-2xl shadow-[0_0_50px_rgba(0,0,0,0.8)] md:border-[20px] border-[#222]/80 overflow-hidden flex flex-col">
+      <div className="relative z-10 w-full h-full md:w-[90%] md:h-[90%] max-w-6xl bg-[#111]/70 backdrop-blur-sm md:rounded-2xl shadow-[0_0_50px_rgba(0,0,0,0.8)] md:border-[20px] border-[#222]/80 overflow-visible flex flex-col">
         
         {/* Screen Content Wrapper */}
         <div className="relative w-full h-full bg-black/20 overflow-hidden crt-flicker rounded-lg">
@@ -60,12 +60,12 @@ const App: React.FC = () => {
         </div>
 
         {/* Monitor Brand Label */}
-        <div className="absolute bottom-[-15px] left-1/2 transform -translate-x-1/2 text-[#444] font-retro-header text-[10px] md:text-xs tracking-[0.3em] z-20 pointer-events-none hidden md:block">
+        <div className="absolute bottom-[-18px] left-1/2 transform -translate-x-1/2 text-[#444] font-retro-header text-[10px] md:text-xs tracking-[0.3em] z-20 pointer-events-none hidden md:block">
             COMMODORE 1084S
         </div>
         
         {/* Power LED */}
-        <div className="absolute bottom-[-12px] right-8 w-2 h-2 bg-green-500 rounded-full shadow-[0_0_5px_#0f0] z-20 hidden md:block animate-pulse"></div>
+        <div className="absolute bottom-[-14px] right-8 w-2 h-2 bg-green-500 rounded-full shadow-[0_0_5px_#0f0] z-20 hidden md:block animate-pulse"></div>
       </div>
     </div>
   );

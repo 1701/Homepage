@@ -95,7 +95,7 @@ const ScummInterface: React.FC<ScummInterfaceProps> = ({ onShowImprint }) => {
           <p className="mb-4 text-cyan-300 drop-shadow-[2px_2px_0_rgba(0,0,0,0.8)]">WELCOME TO THE GRID.</p>
           <p className="drop-shadow-md">I AM <span className="text-pink-500 font-bold text-shadow-glow">MARKUS STEIREIF</span>.</p>
           <p className="drop-shadow-md text-gray-300">PRODUCT GUY, BORN IN THE 80s & RETRO ENTHUSIAST.</p>
-          <p className="mt-4 text-yellow-300 text-sm md:text-lg"> "Things are only impossible until they're not." — Captain Jean-Luc Picard<span className="blink-caret">_</span></p>
+          <p className="mt-4 text-yellow-300 text-sm md:text-lg"> "Things are only impossible until they're not."<br /> — Captain Jean-Luc Picard<span className="blink-caret">_</span></p>
         </div>
 
       </div>
@@ -104,7 +104,7 @@ const ScummInterface: React.FC<ScummInterfaceProps> = ({ onShowImprint }) => {
       <div className="bg-[#121212]/95 border-t-4 border-gray-600 p-4 h-auto md:h-48 flex flex-col shadow-[0_-4px_10px_rgba(0,0,0,0.5)] relative z-20">
         {/* Sentence Line */}
         <div className="h-8 mb-2 text-center font-retro-body text-green-400 text-xl tracking-widest uppercase drop-shadow-[0_0_5px_rgba(0,255,0,0.5)]">
-             {hoveredVerb ? `> ${hoveredVerb}` : '> Where do you want to go today? :'} <span className="animate-pulse">_</span>
+             {hoveredVerb ? `> ${hoveredVerb}` : '> Where do you want to go today?'}
         </div>
 
         {/* Verbs Grid */}
