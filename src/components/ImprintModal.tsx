@@ -21,21 +21,21 @@ const ImprintModal: React.FC<ImprintModalProps> = ({ onClose }) => {
           <div className="space-y-2">
             <p className="font-bold">Angaben gemäß § 5 TMG</p>
             <p>Markus Steireif</p>
-            <p>[Musterstraße 1]</p>
-            <p>[12345 Musterstadt]</p>
+            <p>[Maisenbachstr. 2]</p>
+            <p>[76359 Marxzell]</p>
           </div>
 
           <div className="space-y-2 mt-4">
             <p className="font-bold">Kontakt</p>
-            <p>Telefon: [Telefonnummer]</p>
-            <p>E-Mail: [E-Mail-Adresse]</p>
+            <p>Telefon: [+49 151 41688724]</p>
+            <p>E-Mail: [markus.steireif@gmx.de]</p>
           </div>
 
           <div className="space-y-2 mt-4">
             <p className="font-bold">Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</p>
             <p>Markus Steireif</p>
-            <p>[Musterstraße 1]</p>
-            <p>[12345 Musterstadt]</p>
+            <p>[Maisenbachstr. 2]</p>
+            <p>[76359 Marxzell]</p>
           </div>
           
           <div className="mt-8 pt-4 border-t border-blue-400 text-sm text-gray-300">

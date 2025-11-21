@@ -10,8 +10,8 @@ const ScummInterface: React.FC<ScummInterfaceProps> = ({ onShowImprint }) => {
   const [hoveredVerb, setHoveredVerb] = useState<string>('');
   
   const commands: LinkItem[] = [
-    { label: 'LINKEDIN', type: 'external', url: 'https://www.linkedin.com' },
-    { label: 'GITHUB', type: 'external', url: 'https://github.com' },
+    { label: 'LINKEDIN', type: 'external', url: 'https://www.linkedin.com/in/markus-steireif-37a18487/' },
+    { label: 'GITHUB', type: 'external', url: 'https://github.com/1701/' },
     { label: 'IMPRINT', type: 'internal', action: onShowImprint },
   ];
 
