@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Markus Steireif // SYSTEM_READY</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+    <style>
+      /* Custom Scrollbar for Webkit */
+      ::-webkit-scrollbar {
+        width: 12px;
+        background: #000;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #00aa00;
+        border: 2px solid #000;
+      }
+      
+      /* CRT Flicker Animation */
+      @keyframes flicker {
+        0% { opacity: 0.97; }
+        5% { opacity: 0.95; }
+        10% { opacity: 0.9; }
+        15% { opacity: 0.95; }
+        20% { opacity: 0.99; }
+        25% { opacity: 0.95; }
+        30% { opacity: 0.9; }
+        35% { opacity: 0.96; }
+        40% { opacity: 0.98; }
+        45% { opacity: 0.95; }
+        50% { opacity: 0.99; }
+        55% { opacity: 0.93; }
+        60% { opacity: 0.9; }
+        65% { opacity: 0.96; }
+        70% { opacity: 1; }
+        75% { opacity: 0.97; }
+        80% { opacity: 0.95; }
+        85% { opacity: 0.92; }
+        90% { opacity: 0.98; }
+        95% { opacity: 0.99; }
+        100% { opacity: 0.94; }
+      }
+
+      /* Scanline Move Animation */
+      /* Since the scanline element is 20% of the container height, 
+         translating it 100% only moves it 20% of the screen.
+         To move it 120% of the screen (fully off bottom), we need 
+         120 / 20 = 6 => 600% translation. */
+      @keyframes scanline {
+        0% { transform: translateY(-100%); }
+        100% { transform: translateY(600%); }
+      }
+
+      /* Synthwave Grid Animation - Infinite Scroll */
+      @keyframes gridMove {
+        0% { background-position: 0 0; }
+        100% { background-position: 0 60px; }
+      }
+
+      .font-retro-header {
+        font-family: 'Press Start 2P', cursive;
+      }
+      .font-retro-body {
+        font-family: 'VT323', monospace;
+      }
+      
+      .crt-flicker {
+        animation: flicker 0.15s infinite;
+      }
+
+      .text-shadow-glow {
+        text-shadow: 0 0 5px #ff00de, 0 0 10px #ff00de;
+      }
+    </style>
+
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/"
+  }
+}
+</script>
+  <script type="module" crossorigin src="/Homepage/assets/index-DdcMA87f.js"></script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
