@@ -1,5 +1,6 @@
+
 import React, { useState } from 'react';
-import { LinkItem } from '../types';
+import type { LinkItem } from '../types';
 
 interface ScummInterfaceProps {
   onShowImprint: () => void;
@@ -101,7 +102,7 @@ const ScummInterface: React.FC<ScummInterfaceProps> = ({ onShowImprint }) => {
           <p className="mb-4 text-cyan-300 drop-shadow-[2px_2px_0_rgba(0,0,0,0.8)]">WELCOME TO THE GRID.</p>
           <p className="drop-shadow-md">I AM <span className="text-pink-500 font-bold text-shadow-glow">MARKUS STEIREIF</span>.</p>
           <p className="drop-shadow-md text-gray-300">PRODUCT GUY, BORN IN THE 80s & RETRO ENTHUSIAST.</p>
-          <p className="mt-4 text-yellow-300 text-sm md:text-lg blink-caret">> CHOOSE YOUR DESTINY_</p>
+          <p className="mt-4 text-yellow-300 text-sm md:text-lg blink-caret"> CHOOSE YOUR DESTINY_</p>
         </div>
 
       </div>

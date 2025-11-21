@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { BootLine } from '../types';
+import type { BootLine } from '../types';
 
 interface BootSequenceProps {
   onComplete: () => void;
