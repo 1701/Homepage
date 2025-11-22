@@ -12,9 +12,9 @@ const ScummInterface: React.FC<ScummInterfaceProps> = ({ onShowImprint }) => {
   const commands: LinkItem[] = [
     { label: 'GOTO LINKEDIN', type: 'external', url: 'https://www.linkedin.com/in/markus-steireif-37a18487/' },
     { label: 'GOTO GITHUB', type: 'external', url: 'https://github.com/1701/' },
-    { label: 'PLAY C64 GAMES', type: 'external', url: 'https://archive.org/details/softwarelibrary_c64_games' },
-    { label: 'PLAY MS-DOS GAMES', type: 'external', url: 'https://archive.org/details/softwarelibrary_msdos_games' },
-    { label: 'READ MAGAZINES', type: 'external', url: 'https://www.kultmags.com/mags.php' },
+    { label: 'RUN C64 GAMES', type: 'external', url: 'https://archive.org/details/softwarelibrary_c64_games' },
+    { label: 'RUN DOS GAMES', type: 'external', url: 'https://archive.org/details/softwarelibrary_msdos_games' },
+    { label: 'GET MAGAZINES', type: 'external', url: 'https://www.kultmags.com/mags.php' },
     { label: 'OPEN IMPRINT', type: 'internal', action: onShowImprint },
   ];
 
@@ -124,10 +124,14 @@ const ScummInterface: React.FC<ScummInterfaceProps> = ({ onShowImprint }) => {
                     {cmd.label}
                 </button>
             ))}
-            {/* Filler verbs for aesthetics */}
-            <button className="text-gray-700 cursor-not-allowed text-left px-4 py-2" disabled>MAILBOX / BBS</button>
-            <button className="text-gray-700 cursor-not-allowed text-left px-4 py-2" disabled>IRC CHAT</button>
-            <button className="text-gray-700 cursor-not-allowed text-left px-4 py-2" disabled>USENET GROUPS</button>
+            {/* Filler verbs for aesthetics - only shown if no commands */}
+            {commands.length === 0 && (
+                <>
+                    <button className="text-gray-700 cursor-not-allowed text-left px-4 py-2" disabled>MAILBOX / BBS</button>
+                    <button className="text-gray-700 cursor-not-allowed text-left px-4 py-2" disabled>IRC CHAT</button>
+                    <button className="text-gray-700 cursor-not-allowed text-left px-4 py-2" disabled>USENET GROUPS</button>
+                </>
+            )}
         </div>
       </div>
     </div>

@@ -6,15 +6,15 @@ interface BootSequenceProps {
 }
 
 const SEQUENCE: BootLine[] = [
-  { text: "MS CORE 64 SYSTEM BIOS v11.03 (c) 1980", delay: 800, color: "text-green-400" },
-  { text: "CHECKING PERIPHERALS...", delay: 400 },
-  { text: "  > CPU: MOS TECHNOLOGY 6510 [OK]", delay: 300 },
-  { text: "  > RAM: 64K [OK]", delay: 300 },
-  { text: "  > VIDEO: SYNTHWAVE GPU ACCELERATOR DETECTED", delay: 500 },
-  { text: "LOADING THREEPWOOD_VIBES...", delay: 1200 },
-  { text: "MOUNTING DRIVE C: ...", delay: 600 },
-  { text: "EXEC: AUTOEXEC.BAT", delay: 400 },
-  { text: "INITIALIZING USER INTERFACE...", delay: 1000 },
+  { text: "*** COMMODORE 64 BASIC V2 ***", delay: 800, color: "text-blue-400" },
+  { text: "64K RAM SYSTEM  38911 BASIC BYTES FREE", delay: 600, color: "text-blue-300" },
+  { text: "INIT VIC-II VIDEO... [OK]", delay: 300, color: "text-blue-300" },
+  { text: "INIT CPU MOS TECHNOLOGY 6510 [OK]", delay: 300, color: "text-blue-300" },
+  { text: "CHECKING SID 6581... [OK]", delay: 300, color: "text-blue-300" },
+  { text: "READY.", delay: 500, color: "text-blue-300" },
+  { text: "LOAD \"*\",8,1", delay: 1500, color: "text-green-400" },
+  { text: "RUN", delay: 800, color: "text-green-400" },
+  { text: "LOADING THREEPWOOD_VIBES... [OK]", delay: 800 },
 ];
 
 const BootSequence: React.FC<BootSequenceProps> = ({ onComplete }) => {
