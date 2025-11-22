@@ -10,9 +10,12 @@ const ScummInterface: React.FC<ScummInterfaceProps> = ({ onShowImprint }) => {
   const [hoveredVerb, setHoveredVerb] = useState<string>('');
   
   const commands: LinkItem[] = [
-    { label: 'LINKEDIN', type: 'external', url: 'https://www.linkedin.com/in/markus-steireif-37a18487/' },
-    { label: 'GITHUB', type: 'external', url: 'https://github.com/1701/' },
-    { label: 'IMPRINT', type: 'internal', action: onShowImprint },
+    { label: 'GOTO LINKEDIN', type: 'external', url: 'https://www.linkedin.com/in/markus-steireif-37a18487/' },
+    { label: 'GOTO GITHUB', type: 'external', url: 'https://github.com/1701/' },
+    { label: 'PLAY C64 GAMES', type: 'external', url: 'https://archive.org/details/softwarelibrary_c64_games' },
+    { label: 'PLAY MS-DOS GAMES', type: 'external', url: 'https://archive.org/details/softwarelibrary_msdos_games' },
+    { label: 'READ MAGAZINES', type: 'external', url: 'https://www.kultmags.com/mags.php' },
+    { label: 'OPEN IMPRINT', type: 'internal', action: onShowImprint },
   ];
 
   const handleAction = (cmd: LinkItem) => {
