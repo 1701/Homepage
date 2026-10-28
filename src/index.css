@@ -1,17 +1,27 @@
 @import 'tailwindcss';
 
+@font-face {
+  font-family: 'Pixelated MS Sans Serif';
+  font-weight: 400;
+  src: url('./assets/fonts/ms_sans_serif.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Pixelated MS Sans Serif';
+  font-weight: 700;
+  src: url('./assets/fonts/ms_sans_serif_bold.woff2') format('woff2');
+}
+
 @theme {
-  --font-retro-header: 'Press Start 2P', cursive;
-  --font-retro-body: 'VT323', monospace;
+  --font-c64: 'Sixtyfour', monospace;
+  --font-dos: 'VT323', monospace;
+  --font-win: 'Pixelated MS Sans Serif', Arial, sans-serif;
 }
 
 /*
   The default border color has changed to `currentcolor` in Tailwind CSS v4,
   so we've added these compatibility styles to make sure everything still
   looks the same as it did with Tailwind CSS v3.
-
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
 */
 @layer base {
   *,
@@ -27,66 +37,218 @@
   [role='button']:not(:disabled) {
     cursor: pointer;
   }
+
+  html,
+  body {
+    background: #161412;
+    overscroll-behavior: none;
+  }
 }
 
-/* Custom Animations */
-@keyframes flicker {
-  0% { opacity: 0.97; }
-  5% { opacity: 0.95; }
-  10% { opacity: 0.9; }
-  15% { opacity: 0.95; }
-  20% { opacity: 0.99; }
-  25% { opacity: 0.95; }
-  30% { opacity: 0.9; }
-  35% { opacity: 0.96; }
-  40% { opacity: 0.98; }
-  45% { opacity: 0.95; }
-  50% { opacity: 0.99; }
-  55% { opacity: 0.93; }
-  60% { opacity: 0.9; }
-  65% { opacity: 0.96; }
-  70% { opacity: 1; }
-  75% { opacity: 0.97; }
-  80% { opacity: 0.95; }
-  85% { opacity: 0.92; }
-  90% { opacity: 0.98; }
-  95% { opacity: 0.99; }
-  100% { opacity: 0.94; }
+/* --- Intro (ausgeschalteter Monitor) ------------------------------------- */
+
+.intro {
+  position: absolute;
+  inset: 0;
+  z-index: 7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 1rem;
+  text-align: center;
+  font-family: var(--font-dos);
+  color: #8d9a8d;
 }
 
-@keyframes scanline {
-  0% { transform: translateY(-100%); }
-  100% { transform: translateY(600%); }
+.intro-name {
+  font-size: clamp(14px, 2.4vw, 20px);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #6b766b;
 }
 
-@keyframes gridMove {
-  0% { background-position: 0 0; }
-  100% { background-position: 0 60px; }
+.intro-title {
+  font-size: clamp(22px, 4.5vw, 40px);
+  line-height: 1;
+  color: #c9d6c9;
 }
 
-.crt-flicker {
-  animation: flicker 0.15s infinite;
+.intro-years {
+  font-size: clamp(16px, 3vw, 26px);
+  color: #6b766b;
 }
 
-.text-shadow-glow {
-  text-shadow: 0 0 5px #ff00de, 0 0 10px #ff00de;
+.intro-actions {
+  margin-top: 0.8rem;
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-.blink-caret {
-  animation: blink 1s step-end infinite;
+.power-button {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  color: #3d382e;
+  padding: 10px 18px 8px;
+  border-radius: 4px;
+  background: linear-gradient(to bottom, #e7e0cc, #cbc3ab);
+  box-shadow: inset 0 -3px 0 #a39b84, 0 0 0 1px #6d6655, 0 3px 6px rgba(0, 0, 0, 0.5);
 }
 
-@keyframes blink {
-  50% { opacity: 0; }
+.power-button small {
+  font-size: 10px;
+  font-weight: normal;
+  color: #6f685a;
 }
 
-/* Scrollbar */
-::-webkit-scrollbar {
-  width: 12px;
-  background: #000;
-}
-::-webkit-scrollbar-thumb {
-  background: #00aa00;
-  border: 2px solid #000;
+.power-button:active {
+  transform: translateY(2px);
+  box-shadow: inset 0 -1px 0 #a39b84, 0 0 0 1px #6d6655;
 }
 
+.power-button.quiet {
+  justify-content: center;
+  font-weight: normal;
+  font-size: 12px;
+}
+
+.power-icon {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.intro-direct {
+  margin-top: 0.6rem;
+  font-size: clamp(16px, 2.4vw, 20px);
+  color: #8d9a8d;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.intro-direct:hover,
+.power-button:focus-visible,
+.intro-direct:focus-visible {
+  color: #d8e8d8;
+  outline: 1px dashed #8d9a8d;
+  outline-offset: 3px;
+}
+
+/* --- Zeitleiste ---------------------------------------------------------- */
+
+.timeline {
+  flex: none;
+  display: flex;
+  align-items: stretch;
+  gap: 8px;
+  padding: 6px 10px calc(6px + env(safe-area-inset-bottom));
+  background: #0c0b0a;
+  border-top: 1px solid #2c2925;
+  font-family: var(--font-dos);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.timeline::-webkit-scrollbar {
+  display: none;
+}
+
+.timeline-eras {
+  display: flex;
+  gap: 4px;
+}
+
+.timeline-era {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 64px;
+  padding: 2px 8px;
+  border-radius: 2px;
+  color: #77705f;
+  background: #191714;
+  box-shadow: inset 0 0 0 1px #2c2925;
+  line-height: 1;
+}
+
+.timeline-year {
+  font-size: 20px;
+}
+
+.timeline-label {
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.timeline-era:hover {
+  color: #c9c1ad;
+}
+
+.timeline-era.active {
+  color: #ffb43a;
+  background: #2a1d0b;
+  box-shadow: inset 0 0 0 1px #6b4a17;
+  text-shadow: 0 0 6px rgba(255, 180, 58, 0.6);
+}
+
+.timeline-tools {
+  margin-left: auto;
+  display: flex;
+  gap: 4px;
+}
+
+.timeline-tool {
+  white-space: nowrap;
+  font-size: 18px;
+  padding: 0 10px;
+  color: #8a8372;
+  background: #191714;
+  border-radius: 2px;
+  box-shadow: inset 0 0 0 1px #2c2925;
+}
+
+.timeline-tool:hover,
+.timeline-era:focus-visible,
+.timeline-tool:focus-visible {
+  color: #e6dec9;
+  outline: none;
+  box-shadow: inset 0 0 0 1px #77705f;
+}
+
+@media (max-width: 720px) {
+  .timeline {
+    padding: 4px 6px calc(4px + env(safe-area-inset-bottom));
+    gap: 4px;
+  }
+
+  .timeline-era {
+    min-width: 46px;
+    padding: 2px 4px;
+  }
+
+  .timeline-year {
+    font-size: 17px;
+  }
+
+  .timeline-label {
+    font-size: 12px;
+    max-width: 52px;
+    overflow: hidden;
+    text-overflow: clip;
+  }
+
+  .timeline-tool {
+    font-size: 15px;
+    padding: 0 6px;
+  }
+
+  .timeline-tool-long {
+    display: none;
+  }
+}

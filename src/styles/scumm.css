@@ -1,0 +1,256 @@
+/* 486er: VGA 320x200 – BIOS, Titelbild und SCUMM-artige Oberfläche */
+
+.adv-root {
+  position: relative;
+  width: 320px;
+  height: 200px;
+  background: #000;
+  overflow: hidden;
+  font-family: var(--font-dos);
+  -webkit-font-smoothing: none;
+  user-select: none;
+}
+
+.adv-post {
+  position: absolute;
+  inset: 0;
+  color: #aaaaaa;
+  font-size: 10px;
+  line-height: 8px;
+  white-space: pre;
+}
+
+/* --- Titel ------------------------------------------------------------- */
+
+.adv-title {
+  position: absolute;
+  inset: 0;
+  display: block;
+  text-align: center;
+  cursor: pointer;
+}
+
+.adv-title svg {
+  position: absolute;
+  inset: 0;
+}
+
+.adv-title span {
+  position: absolute;
+  left: 0;
+  right: 0;
+  text-shadow: 1px 0 #000, -1px 0 #000, 0 1px #000, 0 -1px #000;
+}
+
+.adv-title-by {
+  top: 30px;
+  font-size: 12px;
+  line-height: 12px;
+  color: #aaaaaa;
+}
+
+.adv-title-the {
+  top: 46px;
+  font-size: 16px;
+  line-height: 16px;
+  color: #ffe070;
+  letter-spacing: 1px;
+}
+
+.adv-title-name {
+  top: 60px;
+  font-size: 46px;
+  line-height: 40px;
+  letter-spacing: 2px;
+  background: linear-gradient(
+    to bottom,
+    #fff8b0 0 8px,
+    #ffd840 8px 18px,
+    #ff9820 18px 28px,
+    #d04010 28px 40px
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: none !important;
+  filter: drop-shadow(1px 0 0 #000) drop-shadow(-1px 0 0 #000) drop-shadow(0 1px 0 #000) drop-shadow(0 2px 0 #401000);
+}
+
+.adv-title-credits {
+  bottom: 6px;
+  font-size: 10px;
+  line-height: 10px;
+  color: #aaaaaa;
+  animation: dos-blink 1.6s steps(1) infinite;
+}
+
+/* --- Spiel ------------------------------------------------------------- */
+
+.adv {
+  position: absolute;
+  inset: 0;
+  background: #000;
+}
+
+.adv-scene {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 320px;
+  height: 144px;
+  overflow: hidden;
+  cursor: crosshair;
+}
+
+.room-svg {
+  position: absolute;
+  inset: 0;
+}
+
+.adv-hotspot {
+  position: absolute;
+  cursor: crosshair;
+  background: transparent;
+}
+
+.adv-hotspot:focus-visible {
+  outline: 1px dotted #55ff55;
+  outline-offset: -1px;
+}
+
+.adv-markus {
+  position: absolute;
+  pointer-events: none;
+}
+
+.adv-speech {
+  position: absolute;
+  z-index: 3;
+  max-width: 190px;
+  font-size: 12px;
+  line-height: 11px;
+  text-align: center;
+  white-space: nowrap;
+  pointer-events: none;
+  text-shadow: 1px 0 #000, -1px 0 #000, 0 1px #000, 0 -1px #000, 1px 1px #000;
+}
+
+.adv-speech-markus {
+  color: #ffffff;
+}
+
+.adv-speech-pc {
+  color: #55ff55;
+}
+
+.adv-sentence {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 145px;
+  height: 10px;
+  font-size: 12px;
+  line-height: 10px;
+  text-align: center;
+  color: #55ffff;
+  white-space: pre;
+}
+
+.adv-ui {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 156px;
+  bottom: 0;
+  display: flex;
+}
+
+.adv-verbs {
+  width: 168px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  padding: 0 2px 2px;
+}
+
+.adv-verb {
+  font-family: var(--font-dos);
+  font-size: 13px;
+  line-height: 12px;
+  color: #00aa00;
+  text-align: left;
+  padding-left: 4px;
+}
+
+.adv-verb:hover,
+.adv-verb:focus-visible,
+.adv-verb.active,
+.adv-verb.hint {
+  color: #55ff55;
+  outline: none;
+}
+
+.adv-verb.active {
+  color: #ffff55;
+}
+
+.adv-inventory {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 2px;
+  padding: 0 4px 3px 2px;
+}
+
+.adv-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #10104a;
+  box-shadow: inset 0 0 0 1px #2a2a80;
+}
+
+.adv-item.empty {
+  background: #08082a;
+}
+
+.adv-item:hover,
+.adv-item:focus-visible {
+  outline: none;
+  box-shadow: inset 0 0 0 1px #55ff55;
+}
+
+.adv-dialog {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 146px;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 0 6px;
+}
+
+.adv-dialog button {
+  font-family: var(--font-dos);
+  font-size: 12px;
+  line-height: 9px;
+  text-align: left;
+  color: #aa00aa;
+}
+
+.adv-dialog button:hover,
+.adv-dialog button:focus-visible {
+  color: #ff55ff;
+  outline: none;
+}
+
+.adv-dialog .adv-dialog-link {
+  color: #00aaaa;
+}
+
+.adv-dialog .adv-dialog-link:hover,
+.adv-dialog .adv-dialog-link:focus-visible {
+  color: #55ffff;
+}

@@ -1,0 +1,206 @@
+/* Commodore 64: 320x200 Bildschirm + Rahmen, 40x25 Zeichen à 8x8 */
+
+.c64 {
+  position: relative;
+  width: 368px;
+  height: 248px;
+  font-family: var(--font-c64);
+  font-size: 8px;
+  line-height: 8px;
+  font-variation-settings: 'BLED' 0, 'SCAN' 0;
+  -webkit-font-smoothing: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  user-select: none;
+}
+
+.c64-border {
+  position: absolute;
+  inset: 0;
+  background: #706deb;
+}
+
+.c64-screen {
+  position: absolute;
+  left: 24px;
+  top: 24px;
+  width: 320px;
+  height: 200px;
+  background: #2e2c9b;
+  color: #706deb;
+  overflow: hidden;
+}
+
+.c64-row {
+  height: 8px;
+  white-space: pre;
+}
+
+.c64-cursor {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  vertical-align: top;
+  background: #706deb;
+  animation: c64-blink 0.66s steps(1) infinite;
+}
+
+@keyframes c64-blink {
+  50% { opacity: 0; }
+}
+
+.c64-decrunch {
+  position: absolute;
+  inset: 0;
+}
+
+.c64-decrunch::after {
+  content: '';
+  position: absolute;
+  left: 24px;
+  top: 24px;
+  width: 320px;
+  height: 200px;
+  background: #000;
+}
+
+/* --- Cracktro ----------------------------------------------------------- */
+
+.c64-cracktro {
+  position: absolute;
+  inset: 0;
+  background: #000;
+}
+
+.c64-stars span {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1px;
+  height: 1px;
+}
+
+.c64-bars {
+  position: absolute;
+  inset: 0;
+}
+
+.c64-bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+
+.c64-bar span {
+  display: block;
+  height: 2px;
+}
+
+.c64-logo {
+  position: absolute;
+  top: 34px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 32px;
+  line-height: 32px;
+  color: #edf171;
+  background: linear-gradient(
+    to bottom,
+    #ffffff 0 4px,
+    #edf171 4px 12px,
+    #8e5029 12px 16px,
+    #c46c71 16px 24px,
+    #813338 24px 32px
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(2px 2px 0 #4a4a4a);
+}
+
+.c64-line {
+  height: 8px;
+  white-space: pre;
+}
+
+.c64-center {
+  position: absolute;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+.c64-menu {
+  position: absolute;
+  top: 110px;
+  left: 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.c64-menu .c64-line:first-child {
+  margin-bottom: 4px;
+}
+
+.c64-keys {
+  position: absolute;
+  top: 196px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+}
+
+.c64-keys button {
+  font: inherit;
+  color: #75cec8;
+  text-transform: uppercase;
+}
+
+.c64-keys button:hover,
+.c64-keys button:focus-visible {
+  color: #ffffff;
+  outline: none;
+}
+
+.c64-inv {
+  background: #75cec8;
+  color: #000;
+  padding: 0 1px;
+}
+
+.c64-keys button:hover .c64-inv,
+.c64-keys button:focus-visible .c64-inv {
+  background: #ffffff;
+}
+
+.c64-scroller {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 216px;
+  height: 32px;
+}
+
+.c64-scroller span {
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 16px;
+  font-size: 16px;
+  line-height: 16px;
+  color: #a9ff9f;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}

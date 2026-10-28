@@ -1,0 +1,405 @@
+/* Raum, Monitor, Gehäuse, Röhre */
+
+.room {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  background: radial-gradient(ellipse at 50% 35%, #2a2723 0%, #161412 70%);
+  color: #ddd;
+}
+
+.stage {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.rig {
+  position: relative;
+  z-index: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Tischplatte wandert mit dem Rechner mit */
+.rig::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  left: 50%;
+  top: calc(100% - 14px);
+  width: 400vw;
+  height: 100vh;
+  transform: translateX(-50%);
+  background: linear-gradient(to bottom, #3a2b20, #2a2019 6px, #1f1712 60%);
+  box-shadow: 0 -1px 0 #4a3828;
+}
+
+.monitor,
+.desk {
+  filter: drop-shadow(0 10px 14px rgba(0, 0, 0, 0.55));
+}
+
+/* --- Monitor ------------------------------------------------------------ */
+
+.monitor {
+  position: relative;
+  padding: 28px 28px 0;
+  border-radius: 20px 20px 8px 8px;
+  background: linear-gradient(to bottom, #e2dbc7, #cfc7b1);
+  box-shadow:
+    inset 0 2px 0 rgba(255, 255, 255, 0.6),
+    inset 0 -3px 0 rgba(0, 0, 0, 0.15),
+    0 0 0 1px #9c9480;
+}
+
+.monitor-c64 {
+  padding: 30px 30px 0;
+  background: linear-gradient(to bottom, #c9c3b3, #b5ae9c);
+}
+
+.compact .monitor {
+  padding: 12px 12px 0;
+  border-radius: 12px 12px 6px 6px;
+}
+
+.tube {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px / 14px;
+  background: #0b0c0b;
+  box-shadow:
+    0 0 0 3px #3a3732,
+    0 0 0 5px #a69e89;
+}
+
+.compact .tube {
+  border-radius: 8px / 7px;
+}
+
+.raster {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.native {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform-origin: 0 0;
+  overflow: hidden;
+}
+
+.scanlines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: linear-gradient(to bottom, transparent 55%, rgba(0, 0, 0, 0.2) 55%);
+  z-index: 5;
+}
+
+.glass {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 6;
+  border-radius: inherit;
+  background: radial-gradient(ellipse at 28% 18%, rgba(255, 255, 255, 0.07), transparent 45%);
+  box-shadow:
+    inset 0 0 40px rgba(0, 0, 0, 0.55),
+    inset 0 0 6px rgba(0, 0, 0, 0.8);
+}
+
+.power-turning-on {
+  animation: crt-on 600ms ease-out both;
+}
+
+.power-turning-off {
+  animation: crt-off 450ms ease-in both;
+}
+
+@keyframes crt-on {
+  0% { transform: scale(0.02, 0.004); filter: brightness(6); }
+  30% { transform: scale(1, 0.004); filter: brightness(4); }
+  65% { transform: scale(1, 1); filter: brightness(1.6); }
+  100% { transform: none; filter: none; }
+}
+
+@keyframes crt-off {
+  0% { transform: none; filter: none; }
+  55% { transform: scale(1, 0.004); filter: brightness(4); }
+  85% { transform: scale(0.01, 0.004); filter: brightness(8); }
+  100% { transform: scale(0, 0); opacity: 0; }
+}
+
+.monitor-chin {
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  color: #6f685a;
+  letter-spacing: 0.04em;
+}
+
+.monitor-c64 .monitor-chin {
+  height: 40px;
+}
+
+.compact .monitor-chin {
+  height: 14px;
+  font-size: 8px;
+}
+
+.monitor-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.cbm-logo {
+  width: 14px;
+  height: 13px;
+  background: url('/assets/commodore-logo.svg') center / contain no-repeat;
+  opacity: 0.8;
+}
+
+/* --- LEDs ------------------------------------------------------------- */
+
+.led {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #2b2a22;
+  box-shadow: inset 0 0 1px #000;
+}
+
+.led-green.on { background: #4cff4c; box-shadow: 0 0 5px #4cff4c; }
+.led-red.on { background: #ff3a2a; box-shadow: 0 0 5px #ff3a2a; }
+.led-yellow.on { background: #ffd23a; box-shadow: 0 0 5px #ffd23a; }
+
+/* --- Schreibtisch: C64 + 1541 ---------------------------------------------- */
+
+.desk {
+  margin-top: 8px;
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  height: 50px;
+}
+
+.compact .desk {
+  height: 26px;
+  margin-top: 6px;
+}
+
+.breadbin {
+  position: relative;
+  width: 300px;
+  height: 46px;
+  border-radius: 6px 6px 3px 3px;
+  background: linear-gradient(to bottom, #8f8170, #7b6e5e);
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.25), 0 0 0 1px #5a4f42;
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  gap: 10px;
+}
+
+.compact .breadbin {
+  width: 150px;
+  height: 24px;
+}
+
+.breadbin-keys {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.key-row {
+  display: flex;
+  gap: 2px;
+}
+
+.key-row:nth-child(2) { padding-left: 5px; }
+.key-row:nth-child(3) { padding-left: 8px; }
+.key-row:nth-child(4) { padding-left: 50px; }
+
+.key {
+  width: 10px;
+  height: 7px;
+  border-radius: 1px;
+  background: #3b2f27;
+  box-shadow: inset 0 -1px 0 #1f1813, inset 0 1px 0 #5a4a3f;
+}
+
+.key.space { width: 90px; }
+
+.breadbin-badge {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  color: #e9e1d1;
+  background: #2d2722;
+  padding: 2px 6px;
+  border-radius: 2px;
+}
+
+.drive1541 {
+  width: 120px;
+  height: 46px;
+  border-radius: 3px;
+  background: linear-gradient(to bottom, #d9d0b8, #c3baa1);
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.4), 0 0 0 1px #958c76;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 8px 8px 5px;
+}
+
+.compact .drive1541 {
+  width: 60px;
+  height: 24px;
+  padding: 4px 5px 3px;
+}
+
+.drive-slot {
+  height: 5px;
+  background: #3f3a31;
+  border-radius: 2px;
+}
+
+.compact .drive-slot { height: 3px; }
+
+.drive-front {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.drive-label {
+  margin-left: auto;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 9px;
+  color: #6f685a;
+}
+
+/* --- Schreibtisch: PC-Desktopgehäuse ----------------------------------------- */
+
+.desk-pc {
+  width: calc(100% + 40px);
+  height: 52px;
+  border-radius: 4px;
+  background: linear-gradient(to bottom, #e4ddca, #cdc5ae);
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.6), 0 0 0 1px #9c9480;
+  padding: 0 14px;
+  align-items: center;
+  gap: 16px;
+}
+
+.compact .desk-pc {
+  width: calc(100% + 12px);
+  height: 28px;
+  padding: 0 8px;
+}
+
+.pc-drives {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.bay {
+  display: block;
+  height: 8px;
+  border-radius: 1px;
+  background: #b9b19b;
+  box-shadow: inset 0 0 0 1px #9a927c;
+}
+
+.bay-525 { width: 130px; }
+.bay-35 { width: 80px; background: #c3bba4; }
+
+.pc-brand {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-style: italic;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: #3a4e8c;
+}
+
+.compact .pc-brand { font-size: 9px; }
+
+.pc-panel {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.compact .pc-panel { gap: 8px; }
+
+.pc-leds {
+  display: flex;
+  gap: 6px;
+}
+
+.pc-buttons {
+  display: flex;
+  gap: 5px;
+}
+
+.pc-btn {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 7px;
+  color: #6f685a;
+  padding: 3px 4px;
+  border-radius: 2px;
+  background: #d8d0bb;
+  box-shadow: inset 0 -2px 0 #a69e88, 0 0 0 1px #a69e88;
+}
+
+.seg {
+  position: relative;
+  display: inline-block;
+  font-family: 'VT323', monospace;
+  font-size: 26px;
+  line-height: 22px;
+  padding: 0 4px;
+  background: #1c0604;
+  border-radius: 2px;
+  box-shadow: inset 0 0 0 1px #000;
+}
+
+.compact .seg {
+  font-size: 18px;
+  line-height: 16px;
+}
+
+.seg-ghost {
+  color: #3a0e09;
+}
+
+.seg-value {
+  position: absolute;
+  right: 4px;
+  top: 0;
+  color: #ff3a24;
+  text-shadow: 0 0 4px rgba(255, 58, 36, 0.8);
+}

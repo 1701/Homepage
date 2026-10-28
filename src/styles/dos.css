@@ -1,0 +1,85 @@
+/* VGA-Textmodus: 80x25 (bzw. 40x25 auf schmalen Bildschirmen), 8x16 Zeichen */
+
+.dos {
+  position: relative;
+  width: 640px;
+  height: 400px;
+  background: #000;
+  color: #aaaaaa;
+  font-family: var(--font-dos);
+  font-size: 20px;
+  line-height: 16px;
+  -webkit-font-smoothing: none;
+  overflow: hidden;
+}
+
+.dos-narrow {
+  width: 320px;
+}
+
+.dos-out {
+  position: absolute;
+  inset: 0;
+  padding: 0;
+}
+
+.dos-scroll {
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.dos-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.dos-line {
+  display: block;
+  min-height: 16px;
+  white-space: pre-wrap;
+  word-break: break-all;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+}
+
+.dos-bright {
+  color: #ffffff;
+}
+
+.dos-link {
+  width: 100%;
+  color: #ffffff;
+}
+
+.dos-link:hover,
+.dos-link:focus-visible {
+  background: #aaaaaa;
+  color: #000;
+  outline: none;
+}
+
+.dos-post-footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.dos-cursor {
+  animation: dos-blink 0.53s steps(1) infinite;
+}
+
+@keyframes dos-blink {
+  50% { opacity: 0; }
+}
+
+.dos-input {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  border: 0;
+  padding: 0;
+  font-size: 16px;
+}
