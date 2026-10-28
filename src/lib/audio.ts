@@ -389,7 +389,7 @@ export const SONGS: Record<'cracktro' | 'adventure' | 'winamp', Song> = {
       k . h . s . h .  k . h k s . h .  k . h . s . h .  k . s s s . s s`,
   },
   adventure: {
-    title: 'The Secret of Marxzell - Titelmusik',
+    title: 'The Secret of Turbo Island - Titelmusik',
     bpm: 100,
     leadWave: 'pulse50',
     bassWave: 'triangle',

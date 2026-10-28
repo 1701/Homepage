@@ -113,10 +113,10 @@ const Title: React.FC<{ onStart: () => void }> = ({ onStart }) => {
   return (
     <button type="button" className="adv-title" onClick={onStart}>
       <TitleArt />
-      <span className="adv-title-by">Markus Steireif in</span>
+      <span className="adv-title-by">Ein Grafik-Adventure</span>
       <span className="adv-title-the">The Secret of</span>
-      <span className="adv-title-name">MARXZELL</span>
-      <span className="adv-title-credits">(C) 1993 Markus Steireif · Klicken zum Starten</span>
+      <span className="adv-title-name">TURBO ISLAND</span>
+      <span className="adv-title-credits">(C) 1993 · Klicken zum Starten</span>
     </button>
   );
 };
@@ -315,7 +315,7 @@ const Game: React.FC<{ next: () => void }> = ({ next }) => {
         say('pc', ['MARKUS STEIREIF. PRODUCT GUY UND RETRO-ENTHUSIAST.', 'ANGEFANGEN HAT ALLES MIT EINEM C64.', 'HEUTE BAUT ER DIGITALE PRODUKTE.'], () => setDialog(true));
       else if (id === 'contact')
         say('pc', ['AM BESTEN UEBER LINKEDIN.', 'KLICKE AUF "LINKEDIN OEFFNEN".'], () => setDialog(true));
-      else if (id === 'secret') say('pc', ['DAS IST GEHEIM.'], () => say('markus', ['Hätte ich mir denken können.'], () => setDialog(true)));
+      else if (id === 'secret') say('pc', ['DIE TURBO-TASTE.', 'DRUECKT MAN SIE, WIRD DER RECHNER LANGSAMER.'], () => say('markus', ['Moment ... was?'], () => setDialog(true)));
       else if (id === 'upgrade') say('pc', ['PENTIUM GEFUNDEN.', 'ICH BIN DANN MAL WEG.'], next);
       else say('pc', ['AUF WIEDERSEHEN.']);
     });

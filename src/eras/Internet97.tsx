@@ -344,7 +344,7 @@ const Internet97: React.FC<EraProps> = ({ screen, next, goTo, quick, openImprint
       w: 380,
       h: 230,
       menu: ['Datei', 'Bearbeiten', 'Ansicht', '?'],
-      body: <FolderView items={GAMES.win.map((g) => ({ label: g, icon: 'game' as IconName, open: () => gameMessage(wm, g) }))} />,
+      body: <FolderView items={GAMES.win97.map((g) => ({ label: g, icon: 'game' as IconName, open: () => gameMessage(wm, g) }))} />,
     },
   ];
 

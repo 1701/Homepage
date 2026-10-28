@@ -160,7 +160,7 @@ export const DIALOG_START = 'HALLO MARKUS. ICH BIN DR. BLASTER. WIE KANN ICH DIR
 export const DIALOG_OPTIONS: DialogOption[] = [
   { id: 'who', text: 'Erzähl dem Besucher, wer ich bin.' },
   { id: 'contact', text: 'Wie kann man mich erreichen?' },
-  { id: 'secret', text: 'Was ist das Geheimnis von Marxzell?' },
+  { id: 'secret', text: 'Was ist das Geheimnis von Turbo Island?' },
   { id: 'upgrade', text: 'Zeit für ein Upgrade!' },
   { id: 'bye', text: 'Tschüss.' },
 ];

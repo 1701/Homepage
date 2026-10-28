@@ -261,6 +261,54 @@
   color: #c0c0ff;
 }
 
+.web-h2-gap {
+  margin-top: 12px;
+}
+
+.web-list li + li {
+  margin-top: 3px;
+}
+
+.web-viewscreen {
+  border: 3px ridge #808080;
+  box-sizing: content-box;
+  max-width: calc(100% - 6px);
+  height: auto;
+}
+
+.web-warp {
+  animation: web-warp 1.1s linear infinite;
+}
+
+@keyframes web-warp {
+  to { transform: translateX(-96px); }
+}
+
+.web-caption {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  color: #c0c0c0;
+  margin-top: 2px;
+}
+
+.web-trek {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.web-trek svg {
+  flex: none;
+}
+
+.web-log {
+  margin-top: 8px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 12px;
+  color: #ff9c00;
+}
+
 .web-list {
   list-style: square;
   padding-left: 18px;

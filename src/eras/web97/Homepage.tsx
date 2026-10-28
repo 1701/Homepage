@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import PixelArt from '../../components/PixelArt';
-import { ERAS, LINKS, PERSON } from '../../content';
+import PixelArt, { PixelRuns } from '../../components/PixelArt';
+import { ANECDOTES_97, LINKS, PERSON, TREK_97 } from '../../content';
 import { openLink } from '../../lib/hooks';
 
 const CONSTRUCTION = {
@@ -44,6 +44,69 @@ const CONSTRUCTION = {
     ],
   ],
 };
+
+const ENTERPRISE = {
+  palette: { h: '#d8dae4', m: '#9aa0b4', s: '#5a6074', w: '#fff8b0', r: '#ff3018', b: '#50b0ff', o: '#ffa040' },
+  rows: [
+    '.................................mhhhm..............',
+    '............................hhhhhhhhhhhhhhh.........',
+    '.......................hhhhhhhhhhhhhhhhhhhhhhhhh....',
+    '...hhhhhhhhhhhhrr...mmwmmwmmwmmwmmwmmwmmwmmwmmwmmmm.',
+    '.bbbbbbbbbbbbbbrrr....ssssssssssssssssssssssssssss..',
+    '..mmmmmmmmmmmmmrr..........sssssssssssssssss........',
+    '.........mmmm...............mmmmmmm.................',
+    '..........mmmm............mmmmmmm...................',
+    '...........mmmm.........mmmmmmm.....................',
+    '.......hhhhhhhhhhhhhhhhhhhhhhhhh....................',
+    '.....hhhwhhhwhhhwhhhwhhhwhhhhoooo...................',
+    '......mmmmmmmmmmmmmmmmmmmmmmmmooo...................',
+    '.........ssssssssssssssssssss.......................',
+  ],
+};
+
+const PICARD = {
+  palette: { s: '#e8b088', l: '#f8d8b8', d: '#b87850', h: '#9a8a7a', k: '#5a3a2a', e: '#202030', r: '#c81818', n: '#141414', g: '#ffd040' },
+  rows: [
+    '.....ssssss.....',
+    '...sslllssss....',
+    '..sslllsssssss..',
+    '..ssllssssssss..',
+    '.hsssssssssssdh.',
+    'hhskkksssskkkdhh',
+    'hdseessssseesddh',
+    '.dssssssdssssdd.',
+    '..sssssssdssssd.',
+    '..ssssssddsssd..',
+    '..dssskkkkssdd..',
+    '...dsssssssdd...',
+    '....ddsssddd....',
+    '......dsdd......',
+    '..nnnnnssnnnnn..',
+    '.nnnnnnrrnnnnnn.',
+    'nnnnnrrrrrrnnnnn',
+    'rrrrrrrrrrrrgrrr',
+    'rrrrrrrrrrrgggrr',
+    'rrrrrrrrrrrgrgrr',
+  ],
+};
+
+// Sterne für den Warpflug: [x, y, Länge]
+const STARS = [
+  [4, 3, 5], [19, 30, 3], [31, 7, 6], [44, 33, 4], [57, 2, 3], [63, 25, 5], [76, 9, 4], [88, 29, 6],
+  [11, 17, 2], [38, 27, 2], [51, 15, 2], [70, 19, 2], [83, 4, 2], [93, 13, 3], [26, 34, 2], [8, 26, 3],
+];
+
+const Viewscreen: React.FC = () => (
+  <svg className="web-viewscreen" width={192} height={72} viewBox="0 0 96 36" shapeRendering="crispEdges" role="img" aria-label={TREK_97.ship}>
+    <rect width={96} height={36} fill="#000" />
+    <g className="web-warp">
+      {[0, 96].map((dx) =>
+        STARS.map(([x, y, w], i) => <rect key={`${dx}-${i}`} x={x + dx} y={y} width={w} height={1} fill={w > 3 ? '#fff' : '#8090c0'} />),
+      )}
+    </g>
+    <PixelRuns rows={ENTERPRISE.rows} palette={ENTERPRISE.palette} x={22} y={11} />
+  </svg>
+);
 
 // Zähler wächst mit jedem Tag seit dem "Online-Gang"
 const visitorCount = () => {
@@ -94,7 +157,7 @@ const Homepage: React.FC<HomepageProps> = ({ onPrev, onNext, onImprint, onGuestb
           ))}
         </h1>
         <p className="web-sub">
-          Willkommen auf meiner Seite! Hier gibt es alles über mich, meine Rechner und meine Lieblingslinks.
+          Willkommen auf meiner Seite! Hier gibt es Links, Kurioses aus dem Netz und eine Prise Star Trek.
         </p>
         <hr className="web-hr" />
       </center>
@@ -107,28 +170,33 @@ const Homepage: React.FC<HomepageProps> = ({ onPrev, onNext, onImprint, onGuestb
                 <span className="web-blink">★</span> Über mich
               </h2>
               <p>
-                Ich bin <b>{PERSON.name}</b> – {PERSON.tagline}. Angefangen hat alles mit einem Commodore 64, danach kamen die PCs,
-                meistens Highscreen von Vobis.
+                Ich bin <b>{PERSON.name}</b> – {PERSON.tagline}.
               </p>
-              <p>
-                Ins Internet komme ich mit <b>AOL</b> und meinem <b>US-Robotics</b>-Modem. Nebenbei läuft immer Winamp, und abends
-                bin ich im mIRC.
-              </p>
-              <p className="web-quote">
-                {PERSON.quote}
-                <br />– {PERSON.quoteBy}
-              </p>
-            </td>
-            <td>
-              <h2>Meine Rechner</h2>
+              <h2 className="web-h2-gap">Wussten Sie schon?</h2>
               <ul className="web-list">
-                {ERAS.map((e) => (
-                  <li key={e.id}>
-                    {e.year}: {e.machine}
-                    {e.mhz ? ` (${e.mhz} MHz)` : ''}
-                  </li>
+                {ANECDOTES_97.map((a) => (
+                  <li key={a}>{a}</li>
                 ))}
               </ul>
+            </td>
+            <td>
+              <h2>Star Trek: TNG</h2>
+              <center>
+                <Viewscreen />
+                <p className="web-caption">{TREK_97.ship}</p>
+              </center>
+              <div className="web-trek">
+                <PixelArt rows={PICARD.rows} palette={PICARD.palette} scale={3} title="Captain Jean-Luc Picard" />
+                <p className="web-quote">
+                  {PERSON.quote}
+                  <br />– {PERSON.quoteBy}
+                </p>
+              </div>
+              <p className="web-log">
+                Logbuch des Captains, Sternzeit {TREK_97.stardate}:
+                <br />
+                {TREK_97.quotes.join(' · ')}
+              </p>
             </td>
           </tr>
         </tbody>

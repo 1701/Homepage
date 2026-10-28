@@ -63,6 +63,33 @@ export const GAMES = {
     'Die Siedler',
     'NASCAR Racing',
   ],
+  win97: [
+    'Diablo',
+    'Quake',
+    'Alarmstufe Rot',
+    'Tomb Raider II',
+    'Die Siedler II',
+    'Age of Empires',
+    'The Curse of Monkey Island',
+    'X-Wing vs. TIE Fighter',
+  ],
+};
+
+// Homepage 1997: "Wussten Sie schon?" und die Star-Trek-Ecke
+export const ANECDOTES_97 = [
+  'Surfen lohnt sich erst ab 21 Uhr – dann gilt der Mondscheintarif.',
+  'Bitte nicht telefonieren, während jemand online ist – sonst fliegt die Verbindung raus.',
+  'Eine Minute Musik als MP3 braucht rund 1 MB – fast eine ganze Diskette.',
+  'Die AOL-CDs aus der Fernsehzeitschrift sind prima Untersetzer.',
+  'Ein Tamagotchi braucht mehr Pflege als Windows 95.',
+  'Mit dem 33.6er-Modem lädt diese Seite in unter einer Minute. Versprochen!',
+  'Was passiert eigentlich im Jahr 2000 mit den ganzen Computern?',
+];
+
+export const TREK_97 = {
+  stardate: '50893.5',
+  ship: 'U.S.S. Enterprise NCC-1701-D',
+  quotes: ['„Tee, Earl Grey, heiß.“', '„Energie!“', '„Widerstand ist zwecklos.“'],
 };
 
 // Laufschrift im C64-Cracktro (Großbuchstaben, ohne Umlaute – wie damals)
