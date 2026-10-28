@@ -36,11 +36,11 @@ const ScummInterface: React.FC<ScummInterfaceProps> = ({ onShowImprint }) => {
 
       {/* Main Visual Area (The "Scene") */}
       {/* We use bg-black/20 to darken slightly for readability but keep background visible */}
-      <div className="flex-grow relative p-4 overflow-y-auto md:overflow-hidden flex flex-col md:flex-row items-center justify-center gap-8 bg-black/20">
+      <div className="grow relative p-4 overflow-y-auto md:overflow-hidden flex flex-col md:flex-row items-center justify-center gap-8 bg-black/20">
         
         {/* Avatar / Character Frame */}
-        <div className="relative w-48 h-48 md:w-64 md:h-64 border-4 border-pink-500/50 shadow-[0_0_20px_rgba(255,0,128,0.4)] flex items-center justify-center group bg-black/60 backdrop-blur-sm transition-all hover:scale-105 hover:border-cyan-400">
-            <div className="absolute inset-0 bg-[radial-gradient(circle,rgba(80,80,80,0.2)_1px,transparent_1px)] bg-[length:4px_4px]"></div>
+        <div className="relative w-48 h-48 md:w-64 md:h-64 border-4 border-pink-500/50 shadow-[0_0_20px_rgba(255,0,128,0.4)] flex items-center justify-center group bg-black/60 backdrop-blur-xs transition-all hover:scale-105 hover:border-cyan-400">
+            <div className="absolute inset-0 bg-[radial-gradient(circle,rgba(80,80,80,0.2)_1px,transparent_1px)] bg-size-[4px_4px]"></div>
             
             {/* Custom Pixel Art Avatar */}
             <div className="z-10 flex flex-col items-center">
@@ -87,14 +87,14 @@ const ScummInterface: React.FC<ScummInterfaceProps> = ({ onShowImprint }) => {
             </div>
             
             {/* Hover Speech Bubble */}
-            <div className="absolute -top-16 left-1/2 transform -translate-x-1/2 bg-white text-black p-2 rounded border-2 border-black font-retro-body w-40 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-20 shadow-[4px_4px_0_rgba(255,0,255,1)]">
+            <div className="absolute -top-16 left-1/2 transform -translate-x-1/2 bg-white text-black p-2 rounded-sm border-2 border-black font-retro-body w-40 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-20 shadow-[4px_4px_0_rgba(255,0,255,1)]">
                 Yes, that's me.
                 <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-8 border-r-8 border-t-8 border-l-transparent border-r-transparent border-t-white"></div>
             </div>
         </div>
 
         {/* Description Text */}
-        <div className="font-retro-body text-xl md:text-2xl max-w-md leading-relaxed text-center md:text-left bg-black/40 p-6 border border-white/10 shadow-[0_0_30px_rgba(0,0,0,0.5)] backdrop-blur-md">
+        <div className="font-retro-body text-xl md:text-2xl max-w-md leading-relaxed md:leading-8 text-center md:text-left bg-black/40 p-6 border border-white/10 shadow-[0_0_30px_rgba(0,0,0,0.5)] backdrop-blur-md">
           <p className="mb-4 text-cyan-300 drop-shadow-[2px_2px_0_rgba(0,0,0,0.8)]">WELCOME TO THE GRID.</p>
           {/* <p className="drop-shadow-md">I AM <span className="text-pink-500 font-bold text-shadow-glow">MARKUS STEIREIF</span>.</p>*/}
           <p className="drop-shadow-md">I AM <span className="text-pink-500 text-shadow-glow">MARKUS STEIREIF</span>.</p>

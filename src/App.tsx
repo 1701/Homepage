@@ -34,7 +34,7 @@ const App: React.FC = () => {
       <SynthwaveBackground />
 
       {/* 2. The Monitor Container */}
-      <div className="relative z-10 w-full h-full md:w-[90%] md:h-[90%] max-w-6xl bg-[#111]/70 backdrop-blur-sm md:rounded-2xl shadow-[0_0_50px_rgba(0,0,0,0.8)] md:border-[20px] border-[#222]/80 overflow-visible flex flex-col">
+      <div className="relative z-10 w-full h-full md:w-[90%] md:h-[90%] max-w-6xl bg-[#111]/70 backdrop-blur-xs md:rounded-2xl shadow-[0_0_50px_rgba(0,0,0,0.8)] md:border-20 border-[#222]/80 overflow-visible flex flex-col">
         
         {/* Screen Content Wrapper */}
         <div className="relative w-full h-full bg-black/20 overflow-hidden crt-flicker rounded-lg">

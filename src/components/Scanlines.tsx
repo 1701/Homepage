@@ -5,7 +5,7 @@ const Scanlines: React.FC = () => {
     <div className="absolute inset-0 z-50 pointer-events-none overflow-hidden rounded-lg mix-blend-hard-light">
       {/* Moving Scanline Bar */}
       <div 
-        className="absolute top-0 left-0 right-0 w-full h-[20%] bg-gradient-to-b from-transparent via-[rgba(255,255,255,0.15)] to-transparent"
+        className="absolute top-0 left-0 right-0 w-full h-[20%] bg-linear-to-b from-transparent via-[rgba(255,255,255,0.15)] to-transparent"
         style={{ animation: 'scanline 6s linear infinite' }}
       />
       
